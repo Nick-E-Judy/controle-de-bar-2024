@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ControleBar.Dominio.ModuloGarcom;
+using ControleBar.Dominio.ModuloPedido;
 
-namespace ControleBar.Dominio
+namespace ControleBar.Dominio.ModuloConta
 {
     public class Conta
     {

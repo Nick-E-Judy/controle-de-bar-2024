@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ControleBar.Dominio
+namespace ControleBar.Dominio.ModuloGarcom
 {
     public class Garcom
     {

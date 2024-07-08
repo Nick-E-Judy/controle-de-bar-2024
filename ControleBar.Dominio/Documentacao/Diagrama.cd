@@ -7,48 +7,43 @@
       <FileName>Mesa.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ControleBar.Dominio.Garcom">
-    <Position X="6.25" Y="3" Width="1.5" />
+  <Class Name="ControleBar.Dominio.ModuloConta.Conta">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAACAAAACAAAAEAAAAAIAACAAAAAAAAAA=</HashCode>
+      <FileName>ModuloConta\Conta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mesa" />
+      <Property Name="Garcom" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Pedidos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ControleBar.Dominio.ModuloGarcom.Garcom">
+    <Position X="7.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAEAAAA=</HashCode>
-      <FileName>Garcom.cs</FileName>
+      <FileName>ModuloGarcom\Garcom.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ControleBar.Dominio.Produto">
-    <Position X="4" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAA=</HashCode>
-      <FileName>Produto.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ControleBar.Dominio.Pedido">
-    <Position X="4" Y="2.75" Width="1.5" />
-    <AssociationLine Name="Produto" Type="ControleBar.Dominio.Produto">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.1" Y="0.195" />
-      </MemberNameLabel>
-    </AssociationLine>
+  <Class Name="ControleBar.Dominio.ModuloPedido.Pedido">
+    <Position X="4.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAE=</HashCode>
-      <FileName>Pedido.cs</FileName>
+      <FileName>ModuloPedido\Pedido.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Produto" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="ControleBar.Dominio.Conta">
-    <Position X="4" Y="0.5" Width="1.5" />
+  <Class Name="ControleBar.Dominio.ModuloProduto.Produto">
+    <Position X="4.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAACAAAACAAAAEAAAAAIAACAAAAAAAAAA=</HashCode>
-      <FileName>Conta.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAA=</HashCode>
+      <FileName>ModuloProduto\Produto.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Garcom" />
-      <Property Name="Mesa" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="Pedidos" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
