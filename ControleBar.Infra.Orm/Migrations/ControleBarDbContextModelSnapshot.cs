@@ -29,8 +29,9 @@ namespace ControleBar.Infra.Orm.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Numero")
-                        .HasColumnType("int");
+                    b.Property<string>("Numero")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
 
                     b.Property<bool>("Ocupada")
                         .HasColumnType("bit");

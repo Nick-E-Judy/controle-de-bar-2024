@@ -53,7 +53,7 @@ namespace ControleBar.Infra.Orm.Compartilhado
 
                 mesaBuilder.Property(m => m.Numero)
                     .IsRequired()
-                    .HasColumnType("int");
+                    .HasColumnType("varchar(250)");
 
                 mesaBuilder.Property(m => m.Ocupada)
                     .IsRequired()

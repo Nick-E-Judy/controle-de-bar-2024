@@ -10,7 +10,7 @@ namespace ControleBar.WinApp.ModuloMesa
             set
             {
                 txtId.Text = value.Id.ToString();
-                txtNumero.Text = value.Numero.ToString();
+                txtNumero.Text = value.Numero;
                 cbOcupada.Checked = value.Ocupada == true;
             }
         }
@@ -28,7 +28,7 @@ namespace ControleBar.WinApp.ModuloMesa
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            int numero = Convert.ToInt32(txtNumero.Text);
+            string numero = txtNumero.Text;
             bool ocupada = false;
 
             if (cbOcupada.Checked)

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleBar.Infra.Orm.Migrations
 {
     [DbContext(typeof(ControleBarDbContext))]
-    [Migration("20240709190538_Add TBMesa")]
+    [Migration("20240709192850_Add TBMesa")]
     partial class AddTBMesa
     {
         /// <inheritdoc />
@@ -32,8 +32,9 @@ namespace ControleBar.Infra.Orm.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Numero")
-                        .HasColumnType("int");
+                    b.Property<string>("Numero")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
 
                     b.Property<bool>("Ocupada")
                         .HasColumnType("bit");
