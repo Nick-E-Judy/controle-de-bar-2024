@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleBar.Infra.Orm.Migrations
 {
     [DbContext(typeof(ControleBarDbContext))]
-    [Migration("20240709192850_Add TBMesa")]
-    partial class AddTBMesa
+    [Migration("20240709205510_Add-Tabelas")]
+    partial class AddTabelas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,23 @@ namespace ControleBar.Infra.Orm.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("ControleBar.Dominio.ModuloGarcom.Garcom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TBGarcom", (string)null);
+                });
 
             modelBuilder.Entity("ControleBar.Dominio.ModuloMesa.Mesa", b =>
                 {

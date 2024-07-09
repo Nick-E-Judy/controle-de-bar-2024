@@ -1,4 +1,5 @@
-﻿using ControleBar.Dominio.ModuloMesa;
+﻿using ControleBar.Dominio.ModuloGarcom;
+using ControleBar.Dominio.ModuloMesa;
 using ControleBar.Dominio.ModuloProduto;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,6 +16,7 @@ namespace ControleBar.Infra.Orm.Compartilhado
     {
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Mesa> Mesas { get; set; }
+        public DbSet<Garcom> Garcons { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string connectionString =
@@ -58,6 +60,19 @@ namespace ControleBar.Infra.Orm.Compartilhado
                 mesaBuilder.Property(m => m.Ocupada)
                     .IsRequired()
                     .HasColumnType("bit");
+            });
+
+            modelBuilder.Entity<Garcom>(garcomBuilder =>
+            {
+                garcomBuilder.ToTable("TBGarcom");
+
+                garcomBuilder.Property(p => p.Id)
+                    .IsRequired()
+                    .ValueGeneratedOnAdd();
+
+                garcomBuilder.Property(p => p.Nome)
+                    .IsRequired()
+                    .HasColumnType("varchar(250)");
             });
 
             base.OnModelCreating(modelBuilder);

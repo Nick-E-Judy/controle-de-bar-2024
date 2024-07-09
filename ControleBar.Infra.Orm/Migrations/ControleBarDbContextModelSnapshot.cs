@@ -21,6 +21,23 @@ namespace ControleBar.Infra.Orm.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ControleBar.Dominio.ModuloGarcom.Garcom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TBGarcom", (string)null);
+                });
+
             modelBuilder.Entity("ControleBar.Dominio.ModuloMesa.Mesa", b =>
                 {
                     b.Property<int>("Id")

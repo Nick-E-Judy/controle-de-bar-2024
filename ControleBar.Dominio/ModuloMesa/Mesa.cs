@@ -32,6 +32,5 @@ namespace ControleBar.Dominio.ModuloMesa
 
             return erros;
         }
-
     }
 }

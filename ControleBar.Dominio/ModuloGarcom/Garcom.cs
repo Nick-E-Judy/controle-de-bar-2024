@@ -1,27 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using ControleBar.Dominio.Compartilhado;
 using ControleBar.Dominio.ModuloMesa;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ControleBar.Dominio.ModuloGarcom
 {
-    public class Garcom
+    public class Garcom : EntidadeBase
     {
-        public int Nome
+        public string Nome { get; set; }
+     
+        public Garcom(string nome)
         {
-            get => default;
-            set
-            {
-            }
+            Nome = nome;
         }
 
-        public Mesa Mesa
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            get => default;
-            set
-            {
-            }
+            Garcom novoGarcom = (Garcom)novoRegistro;
+
+            Nome = novoGarcom.Nome;
         }
+
+        public override List<string> Validar()
+        {
+            List<string> erros = new List<string>();
+
+            if (string.IsNullOrEmpty(Nome.Trim()))
+                erros.Add("O nome deve ser preenchido!");
+
+            return erros;
+        }
+
     }
 }

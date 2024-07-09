@@ -1,21 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using ControleBar.Dominio.ModuloGarcom;
 
 namespace ControleBar.WinApp.ModuloGarcom
 {
     public partial class TelaGarcomForm : Form
     {
-        public TelaGarcomForm()
+        public Garcom Garcom
         {
-            InitializeComponent();
+            get => garcom;
+            set
+            {
+                txtId.Text = value.Id.ToString();
+                txtNome.Text = value.Nome;
+            }
         }
 
+        private Garcom garcom;
+
+        private List<Garcom> garconsCadastrados;
+
+        public TelaGarcomForm(List<Garcom> garconsCadastrados)
+        {
+            InitializeComponent();
+
+            this.garconsCadastrados = garconsCadastrados;
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            string nome = txtNome.Text;
+
+            garcom = new Garcom(nome);
+
+            List<string> erros = garcom.Validar();
+
+            if (erros.Count > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
+        }
     }
 }
