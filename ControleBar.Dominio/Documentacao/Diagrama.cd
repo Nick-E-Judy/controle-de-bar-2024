@@ -14,8 +14,8 @@
       <FileName>ModuloConta\Conta.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Mesa" />
       <Property Name="Garcom" />
+      <Property Name="Mesa" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Pedidos" />
@@ -41,7 +41,7 @@
   <Class Name="ControleBar.Dominio.ModuloProduto.Produto">
     <Position X="4.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAACAAAAAAQAAAAAEAAEAAAA=</HashCode>
       <FileName>ModuloProduto\Produto.cs</FileName>
     </TypeIdentifier>
   </Class>
