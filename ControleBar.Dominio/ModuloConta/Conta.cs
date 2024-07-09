@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ControleBar.Dominio.ModuloGarcom;
+using ControleBar.Dominio.ModuloMesa;
 using ControleBar.Dominio.ModuloPedido;
 
 namespace ControleBar.Dominio.ModuloConta
@@ -44,12 +45,12 @@ namespace ControleBar.Dominio.ModuloConta
             }
         }
 
-        public Mesa Mesa
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        //public Mesa Mesa
+        //{
+        //    get => default;
+        //    set
+        //    {
+        //    }
+        //}
     }
 }

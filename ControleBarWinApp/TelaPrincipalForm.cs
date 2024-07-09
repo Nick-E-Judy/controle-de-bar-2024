@@ -3,6 +3,9 @@ using ControleBar.Dominio.ModuloProduto;
 using ControleBar.Infra.Orm.ModuloProduto;
 using ControleBar.WinApp.ModuloProduto;
 using ControleBar.Infra.Orm.Compartilhado;
+using ControleBar.Infra.Orm.ModuloMesa;
+using ControleBar.Dominio.ModuloMesa;
+using ControleBar.WinApp.ModuloMesa;
 
 namespace ControleBar.WinApp
 {
@@ -13,6 +16,7 @@ namespace ControleBar.WinApp
         ControladorBase controlador;
 
         IRepositorioProduto repositorioProduto;
+        IRepositorioMesa repositorioMesa;
         public TelaPrincipalForm()
         {
             InitializeComponent();
@@ -21,6 +25,7 @@ namespace ControleBar.WinApp
             ControleBarDbContext dbContext = new ControleBarDbContext();
 
             repositorioProduto = new RepositorioProdutoEmOrm(dbContext);
+            repositorioMesa = new RepositorioMesaEmOrm(dbContext);
         }
 
         public void AtualizarRodape(string texto)
@@ -35,9 +40,9 @@ namespace ControleBar.WinApp
             ConfigurarTelaPrincipal(controlador);
         }
 
-        private void produtoMenuItem_Click(object sender, EventArgs e)
+        private void mesasMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorProduto(repositorioProduto);
+            controlador = new ControladorMesa(repositorioMesa);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -89,5 +94,6 @@ namespace ControleBar.WinApp
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
         }
+      
     }
 }

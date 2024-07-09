@@ -194,6 +194,7 @@
             Controls.Add(label4);
             Controls.Add(btnFechar);
             Name = "TelaVisualizarContaForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "TelaVisualizarContaForm";
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);

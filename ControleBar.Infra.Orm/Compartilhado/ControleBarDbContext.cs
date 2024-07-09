@@ -1,4 +1,5 @@
-﻿using ControleBar.Dominio.ModuloProduto;
+﻿using ControleBar.Dominio.ModuloMesa;
+using ControleBar.Dominio.ModuloProduto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace ControleBar.Infra.Orm.Compartilhado
     public class ControleBarDbContext : DbContext
     {
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Mesa> Mesas { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string connectionString =
@@ -39,6 +41,23 @@ namespace ControleBar.Infra.Orm.Compartilhado
                 produtoBuilder.Property(p => p.Preco)
                     .IsRequired()
                     .HasColumnType("DECIMAL");
+            });
+
+            modelBuilder.Entity<Mesa>(mesaBuilder =>
+            {
+                mesaBuilder.ToTable("TBMesa");
+
+                mesaBuilder.Property(m => m.Id)
+                    .IsRequired()
+                    .ValueGeneratedOnAdd();
+
+                mesaBuilder.Property(m => m.Numero)
+                    .IsRequired()
+                    .HasColumnType("int");
+
+                mesaBuilder.Property(m => m.Ocupada)
+                    .IsRequired()
+                    .HasColumnType("bit");
             });
 
             base.OnModelCreating(modelBuilder);

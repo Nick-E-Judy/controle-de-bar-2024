@@ -166,6 +166,7 @@
             Controls.Add(label3);
             Controls.Add(txtId);
             Name = "TelaPedidoForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "TelaPedidoForm";
             ((System.ComponentModel.ISupportInitialize)numQtd).EndInit();
             groupBox1.ResumeLayout(false);

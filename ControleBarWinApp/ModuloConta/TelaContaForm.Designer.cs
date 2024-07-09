@@ -166,6 +166,7 @@
             Controls.Add(label3);
             Controls.Add(txtId);
             Name = "TelaContaForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "TelaContaForm";
             ResumeLayout(false);
             PerformLayout();

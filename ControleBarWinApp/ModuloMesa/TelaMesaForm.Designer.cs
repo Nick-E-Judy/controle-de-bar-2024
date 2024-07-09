@@ -1,6 +1,6 @@
-﻿namespace ControleBar.WinApp.ModuloGarcom
+﻿namespace ControleBar.WinApp.ModuloMesa
 {
-    partial class TelaGarcomForm
+    partial class TelaMesaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,34 +31,34 @@
             btnGravar = new Button();
             btnCancelar = new Button();
             label4 = new Label();
-            label3 = new Label();
-            txtNome = new TextBox();
+            txtNumero = new TextBox();
             label2 = new Label();
             txtId = new TextBox();
-            cmbMesa = new ComboBox();
+            cbOcupada = new CheckBox();
             SuspendLayout();
             // 
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
             btnGravar.Font = new Font("Segoe UI", 11.25F);
-            btnGravar.Location = new Point(208, 199);
+            btnGravar.Location = new Point(207, 205);
             btnGravar.Margin = new Padding(3, 4, 3, 4);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(114, 35);
-            btnGravar.TabIndex = 28;
+            btnGravar.TabIndex = 34;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Font = new Font("Segoe UI", 11.25F);
-            btnCancelar.Location = new Point(328, 199);
+            btnCancelar.Location = new Point(327, 205);
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(114, 35);
-            btnCancelar.TabIndex = 29;
+            btnCancelar.TabIndex = 35;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -66,72 +66,63 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F);
-            label4.Location = new Point(90, 38);
+            label4.Location = new Point(89, 44);
             label4.Name = "label4";
             label4.Size = new Size(32, 25);
-            label4.TabIndex = 27;
+            label4.TabIndex = 33;
             label4.Text = "Id:";
             // 
-            // label3
+            // txtNumero
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11.25F);
-            label3.Location = new Point(61, 136);
-            label3.Name = "label3";
-            label3.Size = new Size(61, 25);
-            label3.TabIndex = 26;
-            label3.Text = "Mesa:";
-            // 
-            // txtNome
-            // 
-            txtNome.Location = new Point(143, 85);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(299, 27);
-            txtNome.TabIndex = 24;
+            txtNumero.Location = new Point(142, 91);
+            txtNumero.Name = "txtNumero";
+            txtNumero.Size = new Size(299, 27);
+            txtNumero.TabIndex = 31;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11.25F);
-            label2.Location = new Point(58, 84);
+            label2.Location = new Point(57, 90);
             label2.Name = "label2";
-            label2.Size = new Size(67, 25);
-            label2.TabIndex = 25;
-            label2.Text = "Nome:";
+            label2.Size = new Size(85, 25);
+            label2.TabIndex = 32;
+            label2.Text = "Número:";
             // 
             // txtId
             // 
             txtId.Enabled = false;
-            txtId.Location = new Point(143, 39);
+            txtId.Location = new Point(142, 45);
             txtId.Name = "txtId";
             txtId.Size = new Size(118, 27);
-            txtId.TabIndex = 23;
+            txtId.TabIndex = 30;
             txtId.Text = "0";
             // 
-            // cmbMesa
+            // cbOcupada
             // 
-            cmbMesa.FormattingEnabled = true;
-            cmbMesa.Location = new Point(143, 136);
-            cmbMesa.Name = "cmbMesa";
-            cmbMesa.Size = new Size(296, 28);
-            cmbMesa.TabIndex = 30;
+            cbOcupada.AutoSize = true;
+            cbOcupada.Location = new Point(142, 134);
+            cbOcupada.Name = "cbOcupada";
+            cbOcupada.Size = new Size(130, 24);
+            cbOcupada.TabIndex = 36;
+            cbOcupada.Text = "Mesa Ocupada";
+            cbOcupada.UseVisualStyleBackColor = true;
             // 
-            // TelaGarcomForm
+            // TelaMesaForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(494, 268);
-            Controls.Add(cmbMesa);
+            ClientSize = new Size(502, 258);
+            Controls.Add(cbOcupada);
             Controls.Add(btnGravar);
             Controls.Add(btnCancelar);
             Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(txtNome);
+            Controls.Add(txtNumero);
             Controls.Add(label2);
             Controls.Add(txtId);
-            Name = "TelaGarcomForm";
+            Name = "TelaMesaForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "TelaGarcomForm";
+            Text = "TelaMesaForm";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -141,10 +132,9 @@
         private Button btnGravar;
         private Button btnCancelar;
         private Label label4;
-        private Label label3;
-        private TextBox txtNome;
+        private TextBox txtNumero;
         private Label label2;
         private TextBox txtId;
-        private ComboBox cmbMesa;
+        private CheckBox cbOcupada;
     }
 }
