@@ -1,24 +1,39 @@
-﻿using ControleBar.Dominio.ModuloProduto;
+﻿using ControleBar.Dominio.Compartilhado;
+using ControleBar.Dominio.ModuloProduto;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ControleBar.Dominio.ModuloPedido
 {
-    public class Pedido
+    public class Pedido : EntidadeBase
     {
-
-        public Produto Produto
+        public Produto Produto { get; set; }
+        public int Quantidade { get; set; }
+        public decimal Valor { get; set; }
+        public Pedido() 
         {
-            get => default;
-            set
-            {
-            }
+            
         }
 
-        public int Quantidade
+        public Pedido(Produto produto, int quantidade)
         {
-            get => default;
-            set
-            {
-            }
+            Produto = produto;
+            Quantidade = quantidade;
+            Valor = quantidade * produto.Preco;
+        }
+
+        public override List<string> Validar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            return $"x{Quantidade} {Produto} R${Valor}";
         }
     }
 }

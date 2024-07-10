@@ -2,55 +2,58 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ControleBar.Dominio.Compartilhado;
 using ControleBar.Dominio.ModuloGarcom;
-using ControleBar.Dominio.ModuloMesa;
+using ControleBar.Dominio.ModuloConta;
 using ControleBar.Dominio.ModuloPedido;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using ControleBar.Dominio.ModuloMesa;
+using ControleBar.Dominio.ModuloProduto;
 
 namespace ControleBar.Dominio.ModuloConta
 {
-    public class Conta
+    public class Conta : EntidadeBase
     {
+        public decimal Valor { get; set; }
+        public bool Aberta { get; set; }
+        public List<Pedido> Produtos {  get; set; } 
+        public DateTime DataAbertura { get; set; }
+        public Garcom Garcom { get; set; }
+        public Mesa Mesa { get; set; }
 
-        public int Valor { get; set; }
-
-        public bool Aberta
+        public Conta()
         {
-            get => default;
-            set
-            {
-            }
+
         }
 
-        public List<Pedido> Pedidos
+        public Conta(decimal valor, List<Pedido> produtos, Garcom garcom, Mesa mesa)
         {
-            get => default;
-            set
-            {
-            }
+            Valor = valor;
+            Aberta = false;
+            Produtos = produtos;
+            DataAbertura = DateTime.Now;
+            Garcom = garcom;
+            Mesa = mesa;
         }
 
-        public DateTime DataAbertura
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            get => default;
-            set
-            {
-            }
+            Conta novoConta = (Conta)novoRegistro;
+
+            Valor = novoConta.Valor;
+            Garcom = novoConta.Garcom;
+            Mesa = novoConta.Mesa;
+            Produtos = novoConta.Produtos;
         }
 
-        public Garcom Garcom
+        public override List<string> Validar()
         {
-            get => default;
-            set
-            {
-            }
-        }
+            List<string> erros = new List<string>();
 
-        //public Mesa Mesa
-        //{
-        //    get => default;
-        //    set
-        //    {
-        //    }
-        //}
+            //if (string.IsNullOrEmpty(Numero.Trim()))
+            //    erros.Add("O número deve ser preenchido!");
+
+            return erros;
+        }
     }
 }

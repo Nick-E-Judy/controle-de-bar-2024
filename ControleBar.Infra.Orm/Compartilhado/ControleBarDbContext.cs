@@ -1,5 +1,7 @@
-﻿using ControleBar.Dominio.ModuloGarcom;
+﻿using ControleBar.Dominio.ModuloConta;
+using ControleBar.Dominio.ModuloGarcom;
 using ControleBar.Dominio.ModuloMesa;
+using ControleBar.Dominio.ModuloPedido;
 using ControleBar.Dominio.ModuloProduto;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,6 +19,8 @@ namespace ControleBar.Infra.Orm.Compartilhado
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Mesa> Mesas { get; set; }
         public DbSet<Garcom> Garcons { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<Conta> Contas { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string connectionString =
@@ -74,6 +78,69 @@ namespace ControleBar.Infra.Orm.Compartilhado
                     .IsRequired()
                     .HasColumnType("varchar(250)");
             });
+
+            modelBuilder.Entity<Pedido>(pedidoBuilder =>
+            {
+                pedidoBuilder.ToTable("TBPedido");
+
+                pedidoBuilder.Property(p => p.Id)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
+
+                pedidoBuilder.Property(p => p.Quantidade)
+                .IsRequired()
+                .HasColumnType("int");
+
+                pedidoBuilder.HasOne(p => p.Produto)
+                .WithMany()
+                .IsRequired()
+                .HasForeignKey("Produto_Id")
+                .HasConstraintName("FK_TBPedido_TBProduto")
+                .OnDelete(DeleteBehavior.NoAction);
+            });
+
+            modelBuilder.Entity<Conta>(contaBuilder =>
+            {
+                contaBuilder.ToTable("TBConta");
+
+                contaBuilder.Property(c => c.Id)
+                .IsRequired()
+                .ValueGeneratedOnAdd();
+
+                contaBuilder.Property(c => c.Valor)
+                    .IsRequired()
+                    .HasColumnType("decimal");
+
+                contaBuilder.Property(c => c.Aberta)
+                    .IsRequired()
+                    .HasColumnType("bit");
+
+                contaBuilder.Property(c => c.DataAbertura)
+                    .IsRequired()
+                    .HasColumnType("datetime");
+
+                contaBuilder.HasOne(c => c.Garcom)
+                    .WithMany()
+                    .IsRequired()
+                    .HasForeignKey("Garcom_Id")
+                    .HasConstraintName("FK_TBConta_TBGarcom")
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                contaBuilder.HasOne(c => c.Mesa)
+                    .WithMany()
+                    .IsRequired()
+                    .HasForeignKey("Mesa_Id")
+                    .HasConstraintName("FK_TBConta_TBMesa")
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                contaBuilder.HasMany(c => c.Produtos)
+                    .WithOne()
+                    .IsRequired()
+                    .HasForeignKey("Pedido_Id")
+                    .HasConstraintName("FK_TBPedido_TBConta")
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+
 
             base.OnModelCreating(modelBuilder);
         }

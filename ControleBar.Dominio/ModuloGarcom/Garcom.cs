@@ -30,5 +30,10 @@ namespace ControleBar.Dominio.ModuloGarcom
             return erros;
         }
 
+        public override string ToString()
+        {
+            return $"{Nome}";
+        }
+
     }
 }

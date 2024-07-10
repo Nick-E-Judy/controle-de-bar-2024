@@ -7,7 +7,7 @@ namespace ControleBar.Dominio.ModuloMesa
     {
         public string Numero {  get; set; }
         public bool Ocupada { get; set; }
-        //public Conta Conta { get; set; }
+        public Conta Conta { get; set; }
 
         public Mesa(string numero, bool ocupada)
         {
@@ -31,6 +31,11 @@ namespace ControleBar.Dominio.ModuloMesa
                 erros.Add("O número deve ser preenchido!");
 
             return erros;
+        }
+
+        public override string ToString()
+        {
+            return $"{Numero}";
         }
     }
 }

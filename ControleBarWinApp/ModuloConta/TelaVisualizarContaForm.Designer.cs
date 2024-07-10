@@ -36,11 +36,12 @@
             label3 = new Label();
             label2 = new Label();
             label4 = new Label();
-            btnFechar = new Button();
+            btnCancelar = new Button();
             label1 = new Label();
             lblNomeGarcom = new Label();
             label5 = new Label();
             lblTotalConta = new Label();
+            btnFecharConta = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -124,17 +125,17 @@
             label4.TabIndex = 37;
             label4.Text = "Mesa: ";
             // 
-            // btnFechar
+            // btnCancelar
             // 
-            btnFechar.DialogResult = DialogResult.Cancel;
-            btnFechar.Font = new Font("Segoe UI", 11.25F);
-            btnFechar.Location = new Point(449, 677);
-            btnFechar.Margin = new Padding(3, 4, 3, 4);
-            btnFechar.Name = "btnFechar";
-            btnFechar.Size = new Size(114, 35);
-            btnFechar.TabIndex = 36;
-            btnFechar.Text = "Fechar";
-            btnFechar.UseVisualStyleBackColor = true;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.Font = new Font("Segoe UI", 11.25F);
+            btnCancelar.Location = new Point(449, 677);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(114, 35);
+            btnCancelar.TabIndex = 36;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -176,11 +177,25 @@
             lblTotalConta.TabIndex = 47;
             lblTotalConta.Text = "[Total da Conta]";
             // 
+            // btnFecharConta
+            // 
+            btnFecharConta.DialogResult = DialogResult.Cancel;
+            btnFecharConta.Font = new Font("Segoe UI", 11.25F);
+            btnFecharConta.Location = new Point(285, 677);
+            btnFecharConta.Margin = new Padding(3, 4, 3, 4);
+            btnFecharConta.Name = "btnFecharConta";
+            btnFecharConta.Size = new Size(147, 35);
+            btnFecharConta.TabIndex = 48;
+            btnFecharConta.Text = " Fechar Conta";
+            btnFecharConta.UseVisualStyleBackColor = true;
+            btnFecharConta.Click += btnFecharConta_Click;
+            // 
             // TelaVisualizarContaForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(606, 741);
+            Controls.Add(btnFecharConta);
             Controls.Add(lblTotalConta);
             Controls.Add(label5);
             Controls.Add(lblNomeGarcom);
@@ -192,7 +207,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label4);
-            Controls.Add(btnFechar);
+            Controls.Add(btnCancelar);
             Name = "TelaVisualizarContaForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "TelaVisualizarContaForm";
@@ -211,10 +226,11 @@
         private Label label3;
         private Label label2;
         private Label label4;
-        private Button btnFechar;
+        private Button btnCancelar;
         private Label label1;
         private Label lblNomeGarcom;
         private Label label5;
         private Label lblTotalConta;
+        private Button btnFecharConta;
     }
 }

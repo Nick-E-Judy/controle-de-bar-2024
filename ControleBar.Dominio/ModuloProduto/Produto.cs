@@ -40,7 +40,7 @@ namespace ControleBar.Dominio.ModuloProduto
 
         public override string ToString()
         {
-            return $"{Nome}, {Preco}";
+            return $"{Nome}";
         }
     }
 }

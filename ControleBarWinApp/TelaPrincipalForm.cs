@@ -9,6 +9,9 @@ using ControleBar.WinApp.ModuloMesa;
 using ControleBar.Dominio.ModuloGarcom;
 using ControleBar.Infra.Orm.ModuloGarcom;
 using ControleBar.WinApp.ModuloGarcom;
+using ControleBar.Dominio.ModuloConta;
+using ControleBar.Infra.Orm.ModuloConta;
+using ControleBar.WinApp.ModuloConta;
 
 namespace ControleBar.WinApp
 {
@@ -21,6 +24,7 @@ namespace ControleBar.WinApp
         IRepositorioProduto repositorioProduto;
         IRepositorioMesa repositorioMesa;
         IRepositorioGarcom repositorioGarcom;
+        IRepositorioConta repositorioConta;
         public TelaPrincipalForm()
         {
             InitializeComponent();
@@ -31,6 +35,7 @@ namespace ControleBar.WinApp
             repositorioProduto = new RepositorioProdutoEmOrm(dbContext);
             repositorioMesa = new RepositorioMesaEmOrm(dbContext);
             repositorioGarcom = new RepositorioGarcomEmOrm(dbContext);
+            repositorioConta = new RepositorioContaEmOrm(dbContext);
         }
 
         public void AtualizarRodape(string texto)
@@ -55,6 +60,13 @@ namespace ControleBar.WinApp
         private void garçonsMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorGarcom(repositorioGarcom);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void contasMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorConta(repositorioConta, repositorioGarcom, repositorioMesa, repositorioProduto);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -88,6 +100,8 @@ namespace ControleBar.WinApp
             btnEditar.Enabled = controladorSelecionado is ControladorBase;
             btnExcluir.Enabled = controladorSelecionado is ControladorBase;
 
+            btnFecharConta.Enabled = controladorSelecionado is IControladorConcluir;
+
             ConfigurarToolTips(controladorSelecionado);
         }
 
@@ -96,6 +110,10 @@ namespace ControleBar.WinApp
             btnAdicionar.ToolTipText = controladorSelecionado.ToolTipAdicionar;
             btnEditar.ToolTipText = controladorSelecionado.ToolTipEditar;
             btnExcluir.ToolTipText = controladorSelecionado.ToolTipExcluir;
+
+
+            if (controladorSelecionado is IControladorConcluir controladorConcluir)
+                btnFecharConta.ToolTipText = controladorConcluir.ToolTipConcluir;
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)
@@ -105,6 +123,12 @@ namespace ControleBar.WinApp
 
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
+        }
+
+        private void btnFecharConta_Click(object sender, EventArgs e)
+        {
+            if (controlador is IControladorConcluir controladorConcluir)
+                controladorConcluir.Concluir();
         }
     }
 }
