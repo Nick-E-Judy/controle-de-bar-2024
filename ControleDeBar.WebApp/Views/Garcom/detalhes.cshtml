@@ -1,0 +1,25 @@
+﻿@{
+    var garcom = ViewBag.Garcom;
+
+    Layout = "_Layout";
+    ViewBag.Title = "Detalhes da Garcom";
+}
+
+<div class="row">
+    <div class="col-lg-6 d-grid gap-2 d-md-block">
+
+        <div class="d-grid">
+
+            <label><strong>Id:</strong> @garcom.Id</label>
+            <label><strong>Nome:</strong> @garcom.Nome</label>
+            <label><strong>CPF:</strong> @garcom.CPF</label>
+
+        </div>
+
+
+        <a href="/garcom/listar" class="btn btn-secondary px-5 mt-4">
+            <i class="bi bi-arrow-return-left me-1"></i>
+            Voltar
+        </a>
+    </div>
+</div>
